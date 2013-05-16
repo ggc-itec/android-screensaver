@@ -40,7 +40,6 @@ public class ScreenSaverActivity extends Activity implements OnTouchListener {
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
-
 		return false;
 	}
 }
