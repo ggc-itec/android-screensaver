@@ -2,4 +2,6 @@
 <resources>
     <string name="hello">Hello World, AndroidGameActivity!</string>
     <string name="app_name">android-screensaver</string>
+    <string name="screensaver1_name">Star Field</string>
+    <string name="screensaver2_name">Bouncing Ball</string>
 </resources>

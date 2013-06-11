@@ -2,7 +2,7 @@ package edu.ggc.screensaver;
 
 import android.graphics.*;
 
-public class Star {
+public class Star implements Sprite {
 	private int x;
 	private int y;
 	private int radius;
@@ -32,6 +32,11 @@ public class Star {
 			ySpeed = 3;
 		}
 	}
+
+    public void flipSpeed() {
+        xSpeed = xSpeed*-1;
+        ySpeed = ySpeed*-1;
+    }
 
 	public void draw(Canvas c) {
 		/*

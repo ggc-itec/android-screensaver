@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public class StarSurfaceView extends SurfaceView implements Runnable {
+public class BallBouncingSurfaceView extends SurfaceView implements Runnable {
 
 	private Thread t = null;
 	private SurfaceHolder holder;
@@ -19,14 +19,14 @@ public class StarSurfaceView extends SurfaceView implements Runnable {
 	public static final int NUM_STARS = 50;
 	private Star[] stars;
 
-	public StarSurfaceView(Context context) {
+	public BallBouncingSurfaceView(Context context) {
 		super(context);
 		holder = getHolder();
 		x = y = 100;
 		stars = new Star[NUM_STARS];
 	}
 
-	public void initialStars(Star[] stars) {
+	public void initialBalls(Star[] stars) {
 		for (int i = 0; i < NUM_STARS; i++) {
 			Random r = new Random();
 			stars[i] = new Star(r.nextInt(getWidth()), r.nextInt(getHeight()),
@@ -42,6 +42,13 @@ public class StarSurfaceView extends SurfaceView implements Runnable {
 		}
 	}
 
+    public void changeDirectionOfBall() {
+        for(Star star: stars)
+        {
+            star.flipSpeed();
+        }
+    }
+
 	@Override
 	public void run() {
 
@@ -52,7 +59,7 @@ public class StarSurfaceView extends SurfaceView implements Runnable {
 
 			//populate the stars array before drawing any stars
 			if (stars[0] == null)
-				initialStars(stars);
+				initialBalls(stars);
 
 			Canvas c = holder.lockCanvas();
 			Paint paint = new Paint();
